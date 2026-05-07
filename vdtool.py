@@ -713,14 +713,14 @@ class VDToolWindow(QMainWindow):
     
     VIDEO_FORMATS = ["mp4", "mkv", "avi", "mov", "webm", "flv", "wmv", "mpeg"]
     AUDIO_FORMATS = ["mp3", "wav", "aac", "flac", "ogg", "m4a", "wma"]
-    IMAGE_FORMATS = ["png", "jpg", "jpeg", "webp", "bmp", "gif", "tiff", "ico"]
+    IMAGE_FORMATS = ["png", "jpg", "jpeg", "webp", "bmp", "gif", "tiff", "ico", "jfif", "avif"]
     
     def __init__(self):
         super().__init__()
         
         self.setWindowTitle("VDTool - Multimedia Converter & Downloader")
-        self.setMinimumSize(1100, 750)
-        self.resize(1200, 800)
+        self.setMinimumSize(1200, 1000)
+        self.resize(1200, 1000)
         
         # Output directory
         self.output_dir = Path.home() / "Downloads" / "VDTool"
@@ -1264,7 +1264,7 @@ class VDToolWindow(QMainWindow):
     def add_image_files(self):
         files, _ = QFileDialog.getOpenFileNames(
             self, "Select Image Files", "",
-            "Image Files (*.png *.jpg *.jpeg *.webp *.bmp *.gif *.tiff *.ico)"
+            "Image Files (*.png *.jpg *.jpeg *.webp *.bmp *.gif *.tiff *.ico *.jfif *.avif)"
         )
         for f in files:
             if f not in self.image_files:
